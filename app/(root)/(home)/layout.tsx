@@ -5,7 +5,7 @@ import React, { ReactNode } from "react";
 function HomeLayout({ children }: { children: ReactNode }) {
   return (
     <main>
-      navbar
+      <Navbar/>
         <div className="flex">
         <SideBar />
         
