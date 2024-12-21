@@ -1,7 +1,35 @@
-import React from "react";
+'use client';
 
-function Meeting({ params }: { params: { id: string } }) {
-  return <div>Meeting Room : #{params.id}</div>;
-}
+import { useState } from 'react';
+import { useUser } from '@clerk/nextjs';
+import { StreamCall, StreamTheme } from '@stream-io/video-react-sdk';
+import { useParams } from 'next/navigation';
+import { Loader } from 'lucide-react';
 
-export default Meeting;
+
+
+import { useGetCallById } from '@/hooks/useGetCallById';
+import Alert from '@/components/Alert';
+
+
+const MeetingPage = () => {
+  const [isSetupComplete, setIsSetupComplete] = useState(false);
+
+
+
+
+  return (
+    <main className="h-screen w-full">
+        <StreamTheme>
+
+        {!isSetupComplete ? (
+'Meeting Setup'
+) : (
+'Metting room'
+)}
+        </StreamTheme>
+    </main>
+  );
+};
+
+export default MeetingPage;
